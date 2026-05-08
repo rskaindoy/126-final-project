@@ -3,9 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>UPV PAWtrol</title>
+    
+    <link rel="stylesheet" href="css/style.css">    
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="listings.html">OUR ANIMALS</a></li>
+                <li><a href="about.html">ABOUT US</a></li>
+                <li><a href="sponsor.html">SPONSOR A PET</a></li>
+                <li><a href="login.html">SIGNUP / LOGIN</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="login-container">
+        <h1>UPV PAWtrol</h1>
+        <p>Login to your account</p>
+
+        <form>
+            <label>Email</label>
+            <input type="email" placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <div class="password-box">
+                <input type="password" id="password" placeholder="Enter password" required>
+                <span class="toggle-password" onclick="togglePassword()">Show</span>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="signup">
+            Don’t have an account? <a href="signup.html">Sign Up</a>
+        </div>
+    </div>
+    <script>
+        function togglePassword() {
+            if (password.type === "password") {
+                password.type = "text";
+            } else {
+                password.type = "password";
+            }
+        }
+    </script>
 </body>
 </html>
