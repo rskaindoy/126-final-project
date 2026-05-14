@@ -74,7 +74,7 @@ main {
     align-items: center;
 }
 
-/* swiper */
+/* swiper 
 .swiper {
     width: 100%;
     max-width: 600px;
@@ -87,8 +87,8 @@ main {
     justify-content: center;
     align-items: center;
 }
-
- /* Optional nicer buttons */
+*/
+ /* Optional nicer buttons 
 .swiper-button-next,
 .swiper-button-prev {
     color: #cb6d8a;
@@ -104,6 +104,7 @@ main {
     height: 500px;
     }
 }
+*/
 
 /* login */
 
@@ -178,3 +179,131 @@ button:hover {
     text-decoration: none;
     color: #0077cc;
 }
+
+/* sponsorship page
+.step {
+    display: none;
+}
+
+.step.active {
+    display: block;
+}
+
+.sponsorCard {
+    width: 500px;
+    min-height: 400px;
+
+    padding: 2rem;
+    border-radius: 20px;
+
+    background: white;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 700px;
+
+    padding: 2rem;
+}
+*/
+/* stepper 
+.form-wrapper {
+    width: 100%;
+    max-width: 700px;
+
+    padding: 2rem;
+}
+
+.step-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+}
+*/
+/* circle 
+.circle {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    border: 2px solid #bdbdbd;
+    background: white;
+    color: #888;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+
+    transition: 0.3s ease;
+}
+
+*/
+/* active step 
+.step-indicator.active .circle {
+    background: black;
+    border-color: black;
+    color: white;
+
+    transform: scale(1.1);
+}
+
+.step-indicator.active p {
+    font-weight: bold;
+    color: black;
+
+    transform: scale(1.1);
+}
+*/
+/* completed step 
+.step-indicator.active .circle {
+    background: black;
+    border-color: black;
+    color: white;
+
+    transform: scale(1.1);
+}
+*/
+/* connecting line 
+.step-indicator.completed .circle {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+
+    padding: 0.9rem;
+
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+
+    border-radius: 10px;
+    border: 1px solid #ccc;
+
+    font-size: 1rem;
+
+    box-sizing: border-box;
+
+    transition: 0.2s ease;
+}
+
+*/
+/* INPUT FOCUS 
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+
+    border-color: black;
+}
+    */
+
