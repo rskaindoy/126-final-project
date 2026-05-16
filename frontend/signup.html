@@ -14,7 +14,7 @@
         <h1>UPV PAWtrol</h1>
         <p>Create an account now</p>
 
-        <form action="/register" method="POST">
+        <form action="/user/signup" method="POST">
             <label>Username</label>
             <input type="text" name="username" placeholder="Choose a unique username" required>
 
@@ -26,6 +26,13 @@
                 <input type="password" name="password" id="password" placeholder="Create a password" required>
             </div>
 
+            <label>Confirm Password</label>
+            <div class="password-box">
+                <input type="password" name="confirmPassword" id="confirm-pass" placeholder="Re-enter password" required>
+                
+                <span class="toggle-password" onclick="togglePassword()">Show</span>
+            </div>
+
             <button type="submit">Sign Up</button>
         </form>
 
@@ -33,5 +40,10 @@
             Already have an account? <a href="login.html">Login</a>
         </div>
     </div>
+
+    <script src="js/navbar.js"></script>
+    <!-- show pw  -->
+    <!-- TODO: maybe make it both have a show then specific lang dun sa isa or is this alr good? -->
+    <script src="js/pass-toggle.js"></script>
 </body>
 </html>

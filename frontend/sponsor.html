@@ -5,13 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/style.css">    
+
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
 </head>
 <body>
     <div id="navbar"></div>
-
-    <div class="form-container">
-        <!-- progress bar -->
-
+    <!-- TODO: make this not external then modify nlng -->
+    <div id="loading-screen" style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 100;
+        transition: opacity 0.3s ease;
+    ">
+        <div style="
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #ff914d;
+            border-radius: 50%;
+            
+            animation: spin 1s linear infinite;
+        "></div>
+    </div>
+    <!-- TODO: make this not inline din -->
+    <div class="form-container" id="main-content" style="opacity: 0; transition: opacity 0.5s ease;">
         <div class="sponsorCard">
             <form id="sponsorForm">
                 <div class="step active">
@@ -20,93 +49,110 @@
                     <p>In accordance with Republic Act 10173, also known as the "Data Privacy Act of 2012," the organization shall maintain the confidentiality of the information you submitted and used it for the purpose of developing a database of the animal-related incidents that happened on the campus grounds. Moreover, you will be contacted if the information you submitted will be used for making reports to be forwarded to a more appropriate agency or organization.</p>
                     <label>
                         <input type="checkbox" required>
-                        I understand and agree to the privacy statement above.
+                        I understand and agree to the privacy statement above. 
                     </label>
                 </div>
 
                 <div class="step">
                     <h2>III. What Kind of sPAWnsor Will You Be? 🐾</h2>
                     <p>Sponsoring as?</p>
-                    <button type="button">Individual</button>
-                    <button type="button">Group/Organization</button>
-                    <button type="button">Business/Establishment</button>
+                    <button type="button" name="sponsorType" value="individual">Individual</button>
+                    <button type="button" name="sponsorType" value="group">Group/Organization</button>
+                    <button type="button" name="sponsorType" value="business">Business/Establishment</button>
                 </div>
 
                 <div class="step">
                     <h2>Personal Details</h2>
-                    <label for="fbLink">Facebook Link</label>
-                    <input type="text" id="fbLink" name="fbLink">
+                    <label for="fb-link">Facebook Link</label>
+                    <input type="text" id="fb-link" name="fbLink1">
                     <br>
 
-                    <label for="contacts">Contact Number</label>
-                    <input type="text" id="contacts" name="contacts">
+                    <label for="contact">Contact Number</label>
+                    <input type="text" id="contact" name="contactNumber">
                 </div>
 
                 <div class="step">
                     <h2>Group Sponsorship or Organization</h2>
-                    <label for="orgName">Name of Organization/Group</label>
-                    <input type="text" id="orgName" name="orgName">
+                    <label for="org-name">Name of Organization/Group</label>
+                    <input type="text" id="org-name" name="entityName">
                     <br>
 
-                    <label for="fbLink">Facebook Link of Representative</label>
-                    <input type="text" id="fbLink" name="fbLink">
+                    <label for="fb-link-group-rep">Facebook Link of Representative</label>
+                    <input type="text" id="fb-link-group-rep" name="fbLink1">
                     <br>
 
-                    <label for="fbLink">Facebook Link of Organization Page</label>
-                    <input type="text" id="fbLink" name="fbLink">
+                    <label for="fb-link-group-page">Facebook Link of Organization Page</label>
+                    <input type="text" id="fb-link-group-page" name="fbLink2">
                     <br>
 
-                    <label for="contacts">Contact Number</label>
-                    <input type="text" id="contacts" name="contacts">
+                    <label for="contact-group">Contact Number</label> 
+                    <input type="text" id="contact-group" name="contactNumber">
                 </div>
 
                 <div class="step">
                     <h2>Establishment / Business</h2>
-                    <label for="orgName">Name of Owner</label>
-                    <input type="text" id="orgName" name="orgName">
+                    <label for="owner-name">Name of Owner</label>
+                    <input type="text" id="owner-name" name="entityName">
                     <br>
 
-                    <label for="orgName">Name of Business / Establishment</label>
-                    <input type="text" id="orgName" name="orgName">
+                    <label for="biz-name">Name of Business / Establishment</label>
+                    <input type="text" id="biz-name" name="entityName">
                     <br>
 
-                    <label for="fbLink">Facebook Link of Owner</label>
-                    <input type="text" id="fbLink" name="fbLink">
+                    <label for="fb-link-biz-owner">Facebook Link of Owner</label>
+                    <input type="text" id="fb-link-biz-owner" name="fbLink1">
                     <br>
 
-                    <label for="fbLink">Facebook Link of Page</label>
-                    <input type="text" id="fbLink" name="fbLink">
+                    <label for="fb-link-biz-page">Facebook Link of Page</label>
+                    <input type="text" id="fb-link-biz-page" name="fbLink2">
                     <br>
 
-                    <label for="contacts">Contact Number of Owner</label>
-                    <input type="text" id="contacts" name="contacts">
+                    <label for="contact-biz">Contact Number of Owner</label>
+                    <input type="text" id="contact-biz" name="contactNumber">
                 </div>
 
                 <div class="step">
+                    <!-- TODO: fetch from sheety api placeholders-->
                     <h2>The Paw-some List of Dogs for sPAWnsorship! 🐾 </h2>
                     <label>Pets you wish to sponsor</label>
-                    <label><input type="checkbox" name="Saki">Saki</label>
-                    <label><input type="checkbox" name="Ducky">Ducky</label>
-                    <label><input type="checkbox" name="Mimi">Mimi</label>
-                    <label><input type="checkbox" name="Mathilda"><label>
+                    <label><input type="checkbox" name="targetPet"value="Saki">Saki</label>
+                    <label><input type="checkbox" name="targetPet" value="Ducky">Ducky</label>
+                    <label><input type="checkbox" name="targetPet" value="Mimi">Mimi</label>
+                    <label><input type="checkbox" name="targetPet" value="Mathilda">Mathilda</label>
                 </div>
 
                 <div class="step">
                     <h2>Pick Your Purr-fect Month to sPAWnsor!</h2>
                     <p>Question</p>
-                    <button type="button">March</button>
-                    <button type="button">April</button>
-                    <button type="button">May</button>
-                    <button type="button">June</button>
-                    <button type="button">July</button>
-                    <button type="button">August</button>
+                    <!--palitan lang later haha-->
+                    <input type="hidden" name="sponsorshipMonth" id="selected-month">
+                        <!-- TODO: add setMonth func -->
+                        <button type="button" class="month-btn" value="January" onclick="setMonth(this)">Januart</button>
+                        <button type="button" class="month-btn" value="February" onclick="setMonth(this)">February</button>
+                        <button type="button" class="month-btn" value="March"   onclick="setMonth(this)">March</button>
+                        <button type="button" class="month-btn" value="April" onclick="setMonth(this)">April</button>
+                        <button type="button" class="month-btn" value="May" onclick="setMonth(this)">May</button>
+                        <button type="button" class="month-btn" value="June"   onclick="setMonth(this)">June</button>
+                        <button type="button" class="month-btn" value="July" onclick="setMonth(this)">July</button>
+                        <button type="button" class="month-btn" value="August" onclick="setMonth(this)">August</button>
+                        <button type="button" class="month-btn" value="September"   onclick="setMonth(this)">September</button>
+                        <button type="button" class="month-btn" value="October" onclick="setMonth(this)">October</button>
+                        <button type="button" class="month-btn" value="November" onclick="setMonth(this)">November</button>
+                        <button type="button" class="month-btn" value="December"   onclick="setMonth(this)">Decemeber</button>
                 </div>
 
                 <div class="step">
                     <p>GCASH QR CODE</p>
-                    <img src="images/gcashQR.png">
+                    <img src="images/gcashQR.png" style="width: 200px;"> <br>
+                    <p><strong>Minimum Sponsorship: ₱800.00</strong></p>
+                    
+                    <label for="amount">Total Amount Sent (PHP):</label>
+                    <input type="number" id="amount" name="amount" step="0.01" min="800" placeholder="800.00" required>
+                    
+                    <br><br>
+
                     <label for="image">Please attach your proof of payment here:</label>
-                    <input type="file" name="image" accept="image/*" required><br><br>
+                    <input type="file" id="image" name="image" accept="image/*" required><br><br>
                 </div>
 
                 <button>Submit</button>
@@ -150,5 +196,40 @@
     
 
     <script src="js/navbar.js"></script>
+
+    <!-- TODO: make this external -->
+    <script>
+        window.addEventListener('DOMContentLoaded', async () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            const mainContent = document.getElementById('main-content');
+
+            try {
+
+                const response = await fetch('/api/user/auth-status'); 
+                const data = await response.json();
+
+                //if not logged in then di kita ang page itself
+                if (!data.isLoggedIn) {
+                    loadingScreen.style.display = 'none'; 
+                    // TODO: make this better idk haha
+                    alert('You must be logged in to view this page! Clicking OK will take you to login.');
+                    window.location.href = '/login.html'; 
+                }
+                else {
+
+                    loadingScreen.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingScreen.style.display = 'none'; 
+                        mainContent.style.opacity = '1';      
+                    },300);
+                }
+            } catch (error) {
+                console.error('Auth check failed:', error);
+                loadingScreen.style.display = 'none';
+                alert('Server error.r.');
+            }
+        });
+    </script>
+
 </body>
 </html>

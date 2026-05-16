@@ -21,15 +21,16 @@
 
                     const card = document.createElement('div');
                     card.className = 'animal-card';
-
                     card.innerHTML = `
                         <img src="${pfp}" alt="${name}">
                         <h2>${name} (${nickname})</h2>
                         <p>${type}</p>
                         <p>Usually seen at: ${seen}</p>
+                        added here
+                        <p>${sex} 
                         <p><strong>Traits and Personality:</strong></p>
                         <p>${traits}</p>
-                    `;
+                    `
                     container.appendChild(card);
                 });
             })
