@@ -13,7 +13,7 @@
         <h1>UPV PAWtrol</h1>
         <p>Login to your account</p>
 
-        <form action="/login" method= "POST">
+        <form action="/user/login" method= "POST">
             <label>Email</label>
             <input type="email" name= "email" placeholder="Enter your email" required>
 
@@ -23,21 +23,14 @@
                 <span class="toggle-password" onclick="togglePassword()">Show</span>
             </div>
 
-            <button type="submit">Login</button>
+            <button type="submit" >Login</button>
         </form>
 
         <div class="signup">
             Don’t have an account? <a href="signup.html">Sign Up</a>
         </div>
     </div>
-    <script src="js/navbar.js">
-        function togglePassword() {
-            if (password.type === "password") {
-                password.type = "text";
-            } else {
-                password.type = "password";
-            }
-        }
-    </script>
+    <script src="js/navbar.js"></script>
+    <script src="js/pass-toggle.js"></script>
 </body>
 </html>

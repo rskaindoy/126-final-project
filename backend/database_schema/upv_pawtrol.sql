@@ -45,15 +45,24 @@ CREATE TABLE `favorite` (
     REFERENCES `user` (`user_id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+
+
 -- Table structure for table `sponsorship`
 CREATE TABLE `sponsorship` (
   `sponsor_id` int(11) NOT NULL AUTO_INCREMENT,
   `user_id` int(11) NOT NULL,
-  `animal_id` int(11) NOT NULL,
-  `amount` decimal(10,2) NOT NULL CHECK (`amount`>0), -- amount shouldnt be negative
-  `proof_img` varchar(255) NOT NULL,
-  `status` enum('pending','denied','verified') NOT NULL DEFAULT 'pending',
-  `verified_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `sponsor_type` enum('individual', 'group', 'business') NOT NULL,
+  `entity_name` varchar(100) DEFAULT NULL,        -- org Name/owner name
+  `contact_number` varchar(20) NOT NULL,          -- diff contact numbers
+  `fb_link_1` varchar(255) DEFAULT NULL,          -- Personal/Rep/Owner
+  `fb_link_2` varchar(255) DEFAULT NULL,          -- Org Page/Biz Page
+  `target_pets` varchar(255) NOT NULL,            -- arr of pets
+  `sponsorship_month` varchar(20) NOT NULL,      
+  `amount` decimal(10,2) NOT NULL CHECK (`amount`>=800.00), 
+  `proof_img` varchar(255) NOT NULL,             
+  `status` enum('pending', 'denied', 'verified') NOT NULL DEFAULT 'pending',
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `verified_at` timestamp NULL DEFAULT NULL ON UPDATE current_timestamp(),
   PRIMARY KEY (`sponsor_id`),
   CONSTRAINT `fk_sponsor_user` FOREIGN KEY (`user_id`) 
     REFERENCES `user` (`user_id`) ON DELETE CASCADE
