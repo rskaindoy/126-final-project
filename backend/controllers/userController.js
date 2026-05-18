@@ -1,7 +1,6 @@
 //DESCRIPTION: handles all logic of users
 
 
-
 //IMPORTS
 const db = require('../src/config/db'); //connect db
 //import third-party mod
